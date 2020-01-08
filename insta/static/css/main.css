@@ -1,0 +1,85 @@
+.navbar{
+    background-color: white;
+    padding:20px;
+}
+
+h1
+{
+  color: green;
+}
+
+header{
+  background-color: #FAFAFA;
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.navigation{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding: 26px 20px;
+  flex-wrap: wrap;
+}
+.navigation a{
+  color: #111;
+}
+.instalogo{
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  width: 30;
+}
+.instalogo a{
+  font-size: 30px;
+  font-family: 'Satisfy', cursive;
+  padding-left:10px;
+}
+.vl{
+border-left:1.5px solid #111;
+height: 30px;
+margin-left: 20px;
+}
+.contacts_icons{
+  display: flex;
+  justify-content: flex-end;
+  width: 30%;
+  /* padding-left: 100px; */
+}
+.contacts_icons a{
+padding-left: 30px;
+font-size: 25px;
+font-weight: lighter;
+}
+.search_bar{
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  border-radius: 1px;
+  color: #999;
+  cursor: text;
+  text-align: center;
+}
+.search_bar {
+  font-size: 15px;
+  padding-left: 10px;
+}
+
+.card{
+  background-color:#FAFAFA;
+  margin: 0 auto;
+  width:614px;
+  height: auto;
+  border: 0.9px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 58px;
+}
+.card_header{
+  padding: 1q0px;
+}
+.card_header a{
+  text-decoration: none;
+  color: black;
+}

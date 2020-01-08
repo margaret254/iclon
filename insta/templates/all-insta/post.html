@@ -1,0 +1,33 @@
+{%extends 'all-insta/base.html'%}
+{% load bootstrap3 %}
+
+{% block content %}
+{{block.super}}
+
+<div class="container">
+    <form  action="{%url 'newpost'%}" method="post">
+        {%csrf_token%}
+
+        {% bootstrap_form postForm layout='inline' %}
+    <input type="submit" value="Create Post">
+  </form>
+    
+    {% for post in posts%}
+    <div class="card mb-4">
+        <div class="card-title">
+            <h2 class="text-center">{{post.title}}</h2>
+        </div>
+        <div class="card-body mb-4">
+            <img src="{{post.post_image.url}}" class="img-responsive card-img" width="100%" alt="Image">
+        </div>
+            <p class="text-center">{{post.post}}</p>
+        </div>
+    </div>
+    {% empty %}
+  <div class="row">
+    <h2 class="text-center">There No Post Items</h2>
+  </div>
+  {% endfor %}
+  
+</div>
+{% endblock %}
