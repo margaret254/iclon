@@ -1,5 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
 import datetime as dt
+from tinymce.models import HTMLField
 # Create your models here.
 
 class Profile(models.Model):
@@ -14,17 +16,15 @@ class Profile(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=60)
-    post = models.TextField()
-    profile = models.ForeignKey(Profile)
+    post = HTMLField()
+    profile = models.ForeignKey(User,on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now_add=True)
-    post_image = models.ImageField(upload_to = 'posts/')
+    post_image = models.ImageField(upload_to = 'posts/', blank=True)
 
     @classmethod
     def search_by_title(cls,search_term):
         gram = cls.objects.filter(title__icontains=search_term)
         return gram
 
-class PostForm(models.Model):
-    caption = models.CharField(max_length = 50)
-    image = models.ImageField()
+
     
