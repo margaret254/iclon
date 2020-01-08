@@ -1,11 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404,HttpResponseRedirect
 import datetime as dt
 from .models import Post
 from .forms import PostForm
 from .email import send_welcome_email
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+
+
+@login_required(login_url='/accounts/register/')
 def new_post(request):
     date = dt.date.today()
     posts = Post.objects.all()
@@ -35,7 +39,8 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'all-insta/search.html',{"message":message})
 
-def post(request,post_id):
+@login_required(login_url='/accounts/login/')
+def post(request):
 
     try:
         post = Post.objects.get(id = post_id)
@@ -43,3 +48,18 @@ def post(request,post_id):
         raise Http404()
     return render(request,"all-insta/single_post.html", {"post":post})
     
+
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.profile = current_user
+            post.save()
+        return redirect('newpost')
+
+    else:
+        form = PostForm()
+    return render(request, 'profile.html', {"form": form})
