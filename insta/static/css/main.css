@@ -26,17 +26,21 @@ header{
 .contacts_icons{
   display: flex;
   justify-content: flex-end;
-  width: 30%;
-  /* padding-left: 100px; */
+  width: 50%;
+  padding:30px;
+  
 }
 .contacts_icons a{
-padding-left: 30px;
+
 font-size: 25px;
 font-weight: lighter;
 }
+.account{
+  padding:20px;
+}
 .search_bar{
   display: flex;
-  width: 50%;
+  width: 80%;
   justify-content: center;
   border-radius: 1px;
   color: #999;
@@ -116,40 +120,7 @@ font-weight: lighter;
   float: right;
   margin-right: 25px;
 }
-.likes a{
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  color: #111;
-  margin: 0px 0px 8px;
-  padding: 0px 21px;
-}
 
-.caption{
-  display: inline-block;
-  width: 100%;
-  padding: 0px 16px;
-}
-.caption a{
-  font-size: 10px;
-  font-weight: bold;
-  color: #000;
-  text-decoration: none;
-  display: inline-block;
-  padding-left: 5px;
-  margin-left: -5px;
-  padding-right: 5px;
-}
-.caption span{
-  font-size: 15px;
-  font-weight: 500;
-  color: #111;
-  display: inline-block;
-}
-.caption h2 p{
-  padding: 0;
-  margin: 0;
-}
 .time_posted{
 
   font-size: 10px;
@@ -157,3 +128,13 @@ font-weight: lighter;
   color: #111;
   padding: 0px 21px;
 }
+.profile{
+  margin-top:60px;
+  border-radius: 10px;
+}
+
+.login{
+  margin-top:80px;
+  border-radius: 10px;
+}
+
